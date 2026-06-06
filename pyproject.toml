@@ -7,8 +7,27 @@ authors = [
     { name = "ed22699", email = "ed22699@bristol.ac.uk" }
 ]
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "pyyaml>=6.0.3",
+    "requests>=2.34.2",
+    "sounddevice>=0.5.5",
+]
 
 [build-system]
 requires = ["uv_build>=0.11.19,<0.12.0"]
 build-backend = "uv_build"
+
+[tool.pytest.ini_options]
+pythonpath = [
+  "src"
+]
+
+[tool.uv.workspace]
+members = [
+    "test",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.3",
+]

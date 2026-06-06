@@ -1,3 +1,13 @@
+# Local data and secrets
+config/config.yaml
+data/collection.db
+logs/
+
+*.DS_Store
+
+# Python environments
+*.pyc
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]

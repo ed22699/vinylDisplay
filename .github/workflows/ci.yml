@@ -1,0 +1,33 @@
+name: CI
+
+# Trigger the pipeline on any push or pull request to the main branch
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    name: Run Verification Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      # Clone repository code onto the GitHub runner machine
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # Install 'uv' using the official Astral GitHub Action
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          version: "latest"
+          enable-cache: true # Caches dependencies so your pipeline runs ultra-fast
+
+      # Ensure a compatible Python version is installed
+      - name: Set up Python
+        run: uv python install
+
+      # Run your tests using pytest managed by uv
+      - name: Run Tests
+        run: uv run pytest
