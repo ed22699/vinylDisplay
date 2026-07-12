@@ -37,6 +37,7 @@ class discogs:
         if response.status_code == 200:
             return response.json()
         else:
+            # TODO: Implement logging and graceful error handling
             raise Exception(f"Error fetching collection: {response.status_code} - {response.text}")
 
     # def get_release_details(self, release_id):

@@ -1,5 +1,4 @@
 import yaml
-import json
 from vinyl_dashboard.api.discogs_client import discogs
 from vinyl_dashboard.utils.database_manager import LocalLibrary
 
